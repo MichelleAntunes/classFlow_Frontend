@@ -1,5 +1,6 @@
+import { Router } from "./routes/router";
 const App = () => {
-  return <div>ClassFlow</div>;
+  return <Router />;
 };
 
 export default App;
