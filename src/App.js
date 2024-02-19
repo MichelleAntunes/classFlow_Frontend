@@ -1,5 +1,8 @@
+import { Router } from "./routes/router";
+import "./index.css";
+
 const App = () => {
-  return <div>ClassFlow</div>;
+  return <Router />;
 };
 
 export default App;
