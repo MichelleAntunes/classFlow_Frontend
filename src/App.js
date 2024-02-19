@@ -1,10 +1,8 @@
-import { GlobalStyle } from "./global/globalTheme";
 import { Router } from "./routes/router";
+import "./index.css";
+
 const App = () => {
-  <>
-    <GlobalStyle />
-    <Router />;
-  </>;
+  return <Router />;
 };
 
 export default App;

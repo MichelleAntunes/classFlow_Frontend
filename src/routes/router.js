@@ -8,10 +8,12 @@ import InactiveStudentPage from "../pages/inactiveStudent/InactiveStudentPage";
 import NewStudentPage from "../pages/newStudent/NewStudentPage";
 import SignupPage from "../pages/signup/SignupPage";
 import StudentPage from "../pages/student/studentPage";
+import { Header } from "../componets/Header";
 
 export const Router = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
