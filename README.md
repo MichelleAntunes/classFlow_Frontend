@@ -29,8 +29,8 @@ Classflow is a platform designed to assist freelance teachers in organizing thei
 
 [API Documentation Link - Backend](https://documenter.getpostman.com/view/25825355/2sA2r3amFv)
 
-Back-End Repository Link (https://github.com/MichelleAntunes/classFlow_Backend.git)
-Front-End Deploy Link (Under Development)
+[Back-End Repository Link](https://github.com/MichelleAntunes/classFlow_Backend.git)  <br>
+[Front-End Deploy Link] (Under Development)
 
 ## How to run this project?
 
