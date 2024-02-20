@@ -9,6 +9,7 @@ import NewStudentPage from "../pages/newStudent/NewStudentPage";
 import SignupPage from "../pages/signup/SignupPage";
 import StudentPage from "../pages/student/studentPage";
 import { Header } from "../componets/Header";
+import Footer from "../componets/Footer";
 
 export const Router = () => {
   return (
@@ -25,6 +26,7 @@ export const Router = () => {
         <Route path="/student/:id" element={<StudentPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
