@@ -1,17 +1,24 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import LoginPage from "../pages/login/LoginPage";
+import SignupPage from "../pages/signup/SignupPage";
 
 export const Header = () => {
   const location = useLocation();
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
 
   const handleLoginClick = () => {
-    setIsModalOpen(true);
+    setIsLoginModalOpen(true);
+  };
+
+  const handleSignupClick = () => {
+    setIsSignupModalOpen(true);
   };
 
   const closeModal = () => {
-    setIsModalOpen(false);
+    setIsLoginModalOpen(false);
+    setIsSignupModalOpen(false);
   };
 
   return (
@@ -50,20 +57,19 @@ export const Header = () => {
           >
             Login
           </button>
-          <Link
-            to="/signup"
-            className={`m-2 p-2 text-sm ${
-              location.pathname === "/signup" ? "border-b-2 border-black" : ""
-            } hover:shadow-lg rounded-lg transition duration-300 ease-in-out`}
+          <button
+            onClick={handleSignupClick}
+            className={`m-2 p-2 text-sm hover:shadow-lg rounded-lg transition duration-300 ease-in-out`}
           >
             Signup
-          </Link>
+          </button>
         </div>
       </div>
-      {isModalOpen && (
+      {(isLoginModalOpen || isSignupModalOpen) && (
         <div className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-8 rounded-lg">
-            <LoginPage onClose={closeModal} />
+            {isLoginModalOpen && <LoginPage onClose={closeModal} />}{" "}
+            {isSignupModalOpen && <SignupPage onClose={closeModal} />}{" "}
           </div>
         </div>
       )}
