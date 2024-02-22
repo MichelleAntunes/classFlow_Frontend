@@ -1,7 +1,25 @@
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import LoginPage from "../pages/login/LoginPage";
+import SignupPage from "../pages/signup/SignupPage";
 
 export const Header = () => {
   const location = useLocation();
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
+
+  const handleLoginClick = () => {
+    setIsLoginModalOpen(true);
+  };
+
+  const handleSignupClick = () => {
+    setIsSignupModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsLoginModalOpen(false);
+    setIsSignupModalOpen(false);
+  };
 
   return (
     <div className="fixed top-0 left-0 right-0 z-10 bg-gray-50 font-header">
@@ -33,24 +51,28 @@ export const Header = () => {
           </Link>
         </div>
         <div className="flex mr-16 gap-4 p-2 text-sm">
-          <Link
-            to="/login"
-            className={`m-2 p-2 text-sm ${
-              location.pathname === "/login" ? "border-b-2 border-black" : ""
-            } hover:shadow-lg rounded-lg transition duration-300 ease-in-out`}
+          <button
+            onClick={handleLoginClick}
+            className={`m-2 p-2 text-sm hover:shadow-lg rounded-lg transition duration-300 ease-in-out`}
           >
             Login
-          </Link>
-          <Link
-            to="/signup"
-            className={`m-2 p-2 text-sm ${
-              location.pathname === "/signup" ? "border-b-2 border-black" : ""
-            } hover:shadow-lg rounded-lg transition duration-300 ease-in-out`}
+          </button>
+          <button
+            onClick={handleSignupClick}
+            className={`m-2 p-2 text-sm hover:shadow-lg rounded-lg transition duration-300 ease-in-out`}
           >
             Signup
-          </Link>
+          </button>
         </div>
       </div>
+      {(isLoginModalOpen || isSignupModalOpen) && (
+        <div className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-8 rounded-lg">
+            {isLoginModalOpen && <LoginPage onClose={closeModal} />}{" "}
+            {isSignupModalOpen && <SignupPage onClose={closeModal} />}{" "}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

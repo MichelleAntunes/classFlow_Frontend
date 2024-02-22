@@ -1,7 +1,7 @@
 import React from "react";
 
-const InactiveStudent = () => {
+const InactiveStudentPage = () => {
   return <div>InactiveStudent</div>;
 };
 
-export default InactiveStudent;
+export default InactiveStudentPage;

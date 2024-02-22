@@ -1,7 +1,8 @@
 import React from "react";
 
-const AboutUs = () => {
+const AboutUsPage = () => {
+  console.log("About Us rendered");
   return <div>About Us</div>;
 };
 
-export default AboutUs;
+export default AboutUsPage;
