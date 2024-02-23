@@ -1,8 +1,14 @@
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useForm } from "../../hooks/useForm";
+import axios from "axios";
+import { BASE_URL } from "../../constants/baseURL";
+import { useNavigate } from "react-router-dom";
+import { setStorageItem } from "../../utils/storageManager";
+import { goToFeed } from "../../routes/cordinator";
 
 const SignupPage = ({ onClose }) => {
+  const navigate = useNavigate();
   const [form, onChange] = useForm({
     name: "",
     email: "",
@@ -33,6 +39,16 @@ const SignupPage = ({ onClose }) => {
 
   const signup = (e) => {
     e.preventDefault();
+    axios
+      .post(`${BASE_URL}/teachers/signup`, form)
+      .then((res) => {
+        setStorageItem("token", res.data.token);
+        goToFeed(navigate);
+      })
+      .catch((err) => {
+        console.log(err.response);
+        alert(err.response.data.message || "Erro inesperado, tente novamente.");
+      });
 
     const errors = validateForm();
 
