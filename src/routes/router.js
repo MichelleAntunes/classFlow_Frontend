@@ -12,8 +12,6 @@ import { Header } from "../componets/Header";
 import Footer from "../componets/Footer";
 
 export const Router = () => {
-  console.log("Router being rendered");
-
   return (
     <BrowserRouter>
       <Header />

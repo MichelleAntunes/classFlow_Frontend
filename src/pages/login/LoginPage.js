@@ -1,10 +1,39 @@
 import React from "react";
-import { emailPattern, passwordPattern } from "../../constants/patterns";
+
 import { AiOutlineClose } from "react-icons/ai";
+import { useForm } from "../../hooks/useForm";
 
 const LoginPage = ({ onClose }) => {
+  const [form, onChange] = useForm({
+    email: "",
+    password: "",
+  });
+  const validateForm = () => {
+    const errors = {};
+
+    if (!form.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+      errors.email = "Email inválido";
+    }
+    if (
+      !form.password.match(
+        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()[\]{}\-_+=]).{8,}$/
+      )
+    ) {
+      errors.password = "Senha inválida";
+    }
+
+    return errors;
+  };
   const login = (e) => {
     e.preventDefault();
+    const errors = validateForm();
+
+    if (Object.keys(errors).length === 0) {
+      console.log("Formulário válido LOGIN. ");
+      console.log(form);
+    } else {
+      console.log("Formulário inválido LOGIN:", errors);
+    }
   };
 
   return (
@@ -26,17 +55,21 @@ const LoginPage = ({ onClose }) => {
             type="email"
             placeholder="Email"
             className="rounded-lg border border-gray-300 px-4 py-2"
-            pattern={emailPattern}
             title="Enter a valid email address"
             required
+            name="email"
+            value={form.email}
+            onChange={onChange}
           />
           <input
             type="password"
             placeholder="Password"
             className="rounded-lg border border-gray-300 px-4 py-2"
-            pattern={passwordPattern}
             title="Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character."
             required
+            name="password"
+            value={form.password}
+            onChange={onChange}
           />
           <button
             type="submit"
