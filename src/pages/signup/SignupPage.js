@@ -44,6 +44,7 @@ const SignupPage = ({ onClose }) => {
       .then((res) => {
         setStorageItem("token", res.data.token);
         goToFeed(navigate);
+        onClose();
       })
       .catch((err) => {
         console.log(err.response);

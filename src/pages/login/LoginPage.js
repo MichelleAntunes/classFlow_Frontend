@@ -2,8 +2,14 @@ import React from "react";
 
 import { AiOutlineClose } from "react-icons/ai";
 import { useForm } from "../../hooks/useForm";
+import axios from "axios";
+import { BASE_URL } from "../../constants/baseURL";
+import { setStorageItem } from "../../utils/storageManager";
+import { goToFeed } from "../../routes/cordinator";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = ({ onClose }) => {
+  const navigate = useNavigate();
   const [form, onChange] = useForm({
     email: "",
     password: "",
@@ -26,7 +32,26 @@ const LoginPage = ({ onClose }) => {
   };
   const login = (e) => {
     e.preventDefault();
+    axios
+      .post(`${BASE_URL}/teachers/login`, form)
+      .then((res) => {
+        setStorageItem("token", res.data.token);
+        goToFeed(navigate);
+        onClose();
+      })
+      .catch((err) => {
+        console.log(err.response);
+        alert(err.response.data.message || "Erro inesperado, tente novamente.");
+      });
+
     const errors = validateForm();
+
+    if (Object.keys(errors).length === 0) {
+      console.log("Formulário válido. ");
+      console.log(form);
+    } else {
+      console.log("Formulário inválido:", errors);
+    }
 
     if (Object.keys(errors).length === 0) {
       console.log("Formulário válido LOGIN. ");
