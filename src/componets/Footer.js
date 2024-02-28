@@ -7,7 +7,7 @@ export const Footer = () => {
       <div className="text-center font-raleway text-[10px] text-[#757575] justify-self-end">
         ©2024 CLASFLOW - Developed by Michelle Antunes
       </div>
-      <div class=" flex gap-5 text-xl">
+      <div className=" flex gap-5 text-xl">
         <a
           href="https://github.com/MichelleAntunes"
           target="_blank"

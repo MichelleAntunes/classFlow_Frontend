@@ -10,10 +10,9 @@ import SignupPage from "../pages/signup/SignupPage";
 import StudentPage from "../pages/student/studentPage";
 import { Header } from "../componets/Header";
 import Footer from "../componets/Footer";
+import ContactUsPage from "../pages/contactUs/ContactUsPage";
 
 export const Router = () => {
-  console.log("Router being rendered");
-
   return (
     <BrowserRouter>
       <Header />
@@ -23,6 +22,7 @@ export const Router = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/aboutUs" element={<AboutUsPage />} />
+        <Route path="/contactUs" element={<ContactUsPage />} />
         <Route path="/feed" element={<FeedPage />} />
         <Route path="/inactiveStudent" element={<InactiveStudentPage />} />
         <Route path="/newStudent" element={<NewStudentPage />} />

@@ -29,3 +29,6 @@ export const goNewStudent = (navigate) => {
 export const goToStudent = (navigate, id) => {
   navigate(`/student/${id}`);
 };
+export const goToContactUs = (navigate, id) => {
+  navigate(`/contactUs/${id}`);
+};

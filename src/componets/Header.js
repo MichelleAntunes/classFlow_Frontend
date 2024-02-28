@@ -1,13 +1,56 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import LoginPage from "../pages/login/LoginPage";
 import SignupPage from "../pages/signup/SignupPage";
+import { deleteStorageItem } from "../utils/storageManager";
+import { goToHome } from "../routes/cordinator";
 
 export const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
 
+  const logout = () => {
+    deleteStorageItem("token");
+    goToHome(navigate);
+  };
+  const ButtonSelector = () => {
+    switch (location.pathname) {
+      case "/":
+        return (
+          <>
+            {" "}
+            <button
+              onClick={handleLoginClick}
+              className={`m-2 p-2 text-sm hover:shadow-lg rounded-lg transition duration-300 ease-in-out`}
+            >
+              Login
+            </button>
+            <button
+              onClick={handleSignupClick}
+              className={`m-2 p-2 text-sm hover:shadow-lg rounded-lg transition duration-300 ease-in-out`}
+            >
+              Signup
+            </button>{" "}
+          </>
+        );
+      case "/feed":
+        return (
+          <>
+            {" "}
+            <button
+              onClick={logout}
+              className={`m-2 p-2 text-sm hover:shadow-lg rounded-lg transition duration-300 ease-in-out`}
+            >
+              Logout
+            </button>{" "}
+          </>
+        );
+      default:
+        return null;
+    }
+  };
   const handleLoginClick = () => {
     setIsLoginModalOpen(true);
   };
@@ -40,7 +83,7 @@ export const Header = () => {
             About Us
           </Link>
           <Link
-            to=""
+            to="/contactUs"
             className={`m-2 p-2 text-sm ${
               location.pathname === "/contactUs"
                 ? "border-b-2 border-black"
@@ -50,20 +93,7 @@ export const Header = () => {
             Contact Us
           </Link>
         </div>
-        <div className="flex mr-16 gap-4 p-2 text-sm">
-          <button
-            onClick={handleLoginClick}
-            className={`m-2 p-2 text-sm hover:shadow-lg rounded-lg transition duration-300 ease-in-out`}
-          >
-            Login
-          </button>
-          <button
-            onClick={handleSignupClick}
-            className={`m-2 p-2 text-sm hover:shadow-lg rounded-lg transition duration-300 ease-in-out`}
-          >
-            Signup
-          </button>
-        </div>
+        <div className="flex mr-16 gap-4 p-2 text-sm">{ButtonSelector()}</div>
       </div>
       {(isLoginModalOpen || isSignupModalOpen) && (
         <div className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex justify-center items-center">
