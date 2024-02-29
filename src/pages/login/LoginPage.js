@@ -32,19 +32,19 @@ const LoginPage = ({ onClose }) => {
   };
   const login = (e) => {
     e.preventDefault();
+    const errors = validateForm();
     axios
       .post(`${BASE_URL}/teachers/login`, form)
       .then((res) => {
+        console.log("Token recebido:", res);
         setStorageItem("token", res.data.token);
         goToFeed(navigate);
         onClose();
       })
       .catch((err) => {
-        console.log(err.response);
+        console.log(err.response.data);
         alert(err.response.data.message || "Erro inesperado, tente novamente.");
       });
-
-    const errors = validateForm();
 
     if (Object.keys(errors).length === 0) {
       console.log("Formulário válido. ");
