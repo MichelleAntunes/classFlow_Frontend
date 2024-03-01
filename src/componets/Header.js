@@ -45,6 +45,12 @@ export const Header = () => {
             >
               Logout
             </button>{" "}
+            <button
+              className={`m-2 p-2 text-sm hover:shadow-lg rounded-lg transition duration-300 ease-in-out`}
+              onClick={""}
+            >
+              Meu perfil
+            </button>
           </>
         );
       default:

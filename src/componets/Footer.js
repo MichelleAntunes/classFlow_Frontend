@@ -3,7 +3,7 @@ import { FaGithubAlt, FaLinkedin } from "react-icons/fa";
 
 export const Footer = () => {
   return (
-    <div className="flex gap-10 items-center justify-center align-middle px-5 py-10 md:px-48">
+    <div className="flex bg-gray-50 gap-10 items-center justify-center align-middle px-5 py-10 md:px-48">
       <div className="text-center font-raleway text-[10px] text-[#757575] justify-self-end">
         ©2024 CLASFLOW - Developed by Michelle Antunes
       </div>

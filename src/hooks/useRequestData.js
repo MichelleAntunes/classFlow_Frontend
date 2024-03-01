@@ -10,7 +10,6 @@ export function useRequestData(url, initialState) {
       .get(url, getHeaders())
       .then((response) => {
         setData(response.data);
-        console.log(response);
       })
       .catch((error) => console.log(error.message));
   }, [url]);
