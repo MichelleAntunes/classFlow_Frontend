@@ -62,13 +62,13 @@ You can also choose to use **yarn** instead of **npm**. You can install it by cl
 ### Front-End:
 
 1. [JavaScript](https://www.javascript.com/)
-2. [React] (https://react.dev/)
-3. [useEffect] (https://legacy.reactjs.org/docs/hooks-effect.html)
-4. [useState] (https://legacy.reactjs.org/docs/hooks-state.html)
-5. [React Router] (https://reactrouter.com/en/main)
-6. [Custom Hooks] (https://legacy.reactjs.org/docs/hooks-custom.html)
-7. [Context] (https://legacy.reactjs.org/docs/context.html)
-8. [Tailwind CSS] (https://tailwindcss.com/)
+2. [React](https://react.dev/)
+3. [useEffect](https://legacy.reactjs.org/docs/hooks-effect.html)
+4. [useState](https://legacy.reactjs.org/docs/hooks-state.html)
+5. [React Router](https://reactrouter.com/en/main)
+6. [Custom Hooks](https://legacy.reactjs.org/docs/hooks-custom.html)
+7. [Context](https://legacy.reactjs.org/docs/context.html)
+8. [Tailwind CSS](https://tailwindcss.com/)
 
 ### Back-End:
 
