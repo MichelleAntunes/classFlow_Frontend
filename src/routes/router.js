@@ -1,16 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginPage from "../pages/login/LoginPage";
 import HomePage from "../pages/home/HomePage";
 import AboutUsPage from "../pages/aboutUs/AboutUsPage";
 import ErrorPage from "../pages/error/ErrorPage";
 import FeedPage from "../pages/feed/FeedPage";
 import InactiveStudentPage from "../pages/inactiveStudent/InactiveStudentPage";
 import NewStudentPage from "../pages/newStudent/NewStudentPage";
-import SignupPage from "../pages/signup/SignupPage";
 import StudentPage from "../pages/student/studentPage";
-import { Header } from "../componets/Header";
+import Header from "../componets/Header";
 import Footer from "../componets/Footer";
 import ContactUsPage from "../pages/contactUs/ContactUsPage";
+import LoginPage from "../pages/modal/login/LoginPage";
+import SignupPage from "../pages/modal/signup/SignupPage";
+import BurguerPageModal from "../pages/modal/burguer/BurguerPage";
+import { TeacherProfil } from "../pages/teacherProfile/TeacherProfil";
+import { TeacherCalendar } from "../pages/Calendar/TeacherCalendar";
+import { AddNewCalendar } from "../pages/class/addNewClass";
 
 export const Router = () => {
   return (
@@ -27,6 +31,11 @@ export const Router = () => {
         <Route path="/inactiveStudent" element={<InactiveStudentPage />} />
         <Route path="/newStudent" element={<NewStudentPage />} />
         <Route path="/student/:id" element={<StudentPage />} />
+        <Route path="/burguer" element={<BurguerPageModal />} />
+        <Route path="/teacherProfil" element={<TeacherProfil />} />
+        <Route path="/newStudent" element={<NewStudentPage />} />
+        <Route path="/calendar" element={<TeacherCalendar />} />
+        <Route path="/newClass" element={<AddNewCalendar />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />

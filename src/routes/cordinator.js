@@ -32,3 +32,21 @@ export const goToStudent = (navigate, id) => {
 export const goToContactUs = (navigate, id) => {
   navigate(`/contactUs/${id}`);
 };
+
+export const goToBurguerPageModal = (navigate) => {
+  navigate(`/burguer`);
+};
+export const goToTeacherProfil = (navigate) => {
+  navigate(`/teacherProfil`);
+};
+
+export const goToNewStudentPage = (navigate) => {
+  navigate(`/newStudent`);
+};
+
+export const goToTeacherCalendar = (navigate) => {
+  navigate(`/calendar`);
+};
+export const goToAddNewCalendar = (navigate) => {
+  navigate(`/newClass`);
+};
