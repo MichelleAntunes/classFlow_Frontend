@@ -1,11 +1,11 @@
 import React from "react";
 
 import { AiOutlineClose } from "react-icons/ai";
-import { useForm } from "../../hooks/useForm";
+import { useForm } from "../../../hooks/useForm";
 import axios from "axios";
-import { BASE_URL } from "../../constants/baseURL";
-import { setStorageItem } from "../../utils/storageManager";
-import { goToFeed } from "../../routes/cordinator";
+import { BASE_URL } from "../../../constants/baseURL";
+import { setStorageItem } from "../../../utils/storageManager";
+import { goToFeed } from "../../../routes/cordinator";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = ({ onClose }) => {

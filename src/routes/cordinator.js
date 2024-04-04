@@ -32,3 +32,7 @@ export const goToStudent = (navigate, id) => {
 export const goToContactUs = (navigate, id) => {
   navigate(`/contactUs/${id}`);
 };
+
+export const goBurguerPageModal = (navigate, id) => {
+  navigate(`/burguer`);
+};
