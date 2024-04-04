@@ -27,7 +27,7 @@ const FeedPage = () => {
   const sortedStudents = filteredStudents.sort((a, b) => {
     if (sortBy === "name") {
       return a.name.localeCompare(b.name);
-    } else {
+    } else if (sortBy === "date") {
       return new Date(a.createdAt) - new Date(b.createdAt);
     }
   });
@@ -38,9 +38,9 @@ const FeedPage = () => {
   return (
     <div className="flex flex-col min-h-screen items-center bg-gray-50 gap-10 pt-10">
       <div className="mt-8 mb-4 text-center text-5xl font-bold font-raleway">
-        Bem-Vindo {nameTeacher}!
+        Welcome {nameTeacher}!
       </div>
-      <div className="flex justify-center mb-4">
+      <div className="flex justify-center mb-20 m-20">
         <input
           type="text"
           placeholder="Buscar aluno..."
@@ -53,13 +53,12 @@ const FeedPage = () => {
           onChange={handleSortChange}
           className="w-80 ml-2 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500 font-raleway"
         >
-          <option value="name">Nome</option>
-          <option value="date">Data de Inclusão</option>
-          <option value="date">Alunos inativos</option>
+          <option value="name">Name</option>
+          <option value="date">Date of inclusion</option>
         </select>
       </div>
       <div className="text-center text-3xl mb-4 font-raleway">
-        Seus atuais alunos são:
+        His current students are:
       </div>
       <div className="flex flex-wrap justify-center">
         {sortedStudents.map((student) => (
@@ -69,7 +68,7 @@ const FeedPage = () => {
             className="flex flex-col gap-8 m-2 text-center items-center justify-self-center align-middle justify-center  p-2 border border-gray-300 rounded-lg cursor-pointer shadow-md w-80 h-40 hover:bg-gray-200"
           >
             <div className="text-2xl">{student.name}</div>
-            <span className="text-blue-500">Ver mais</span>
+            <span className="text-blue-500">More</span>
           </Link>
         ))}
       </div>

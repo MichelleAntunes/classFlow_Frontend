@@ -36,14 +36,20 @@ const LoginPage = ({ onClose }) => {
     axios
       .post(`${BASE_URL}/teachers/login`, form)
       .then((res) => {
-        console.log("Token recebido:", res);
-        setStorageItem("token", res.data.token);
-        goToFeed(navigate);
-        onClose();
+        if (res && res.data) {
+          console.log("Token recebido:", res.data.token);
+          setStorageItem("token", res.data.token);
+          goToFeed(navigate);
+          onClose();
+        } else {
+          console.error("Resposta da solicitação axios é inválida:", res);
+        }
       })
       .catch((err) => {
-        console.log(err.response.data);
-        alert(err.response.data.message || "Erro inesperado, tente novamente.");
+        console.error("Erro na solicitação axios:", err);
+        alert(
+          err.response?.data?.message || "Erro inesperado, tente novamente."
+        );
       });
 
     if (Object.keys(errors).length === 0) {

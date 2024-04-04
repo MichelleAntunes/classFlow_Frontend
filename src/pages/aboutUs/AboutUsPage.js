@@ -1,5 +1,6 @@
 import React from "react";
 import MichelleDeveloper from "../../assets/MichelleDeveloper.jpg";
+import MichelleEMatheus from "../../assets/MatheusSerafim.jpg";
 
 const AboutUsPage = () => {
   return (
@@ -59,6 +60,23 @@ const AboutUsPage = () => {
           purposes and is still a work in progress. However, I am fully
           committed to keeping it updated and functional, driven by my passion
           for continuous improvement and learning.
+        </p>
+      </div>
+      <br /> <br />
+      <h1 className="text-3xl font-bold mb-4">Special thanks</h1>
+      <div className="flex justify-center">
+        <p className="mb-4 text-lg">
+          On the basis of this report, the developer of this project would like
+          to thank this teacher and this incredible English class, which played
+          a big part in the development of ClassFlow, in the record below. Thank
+          you, Matheus Serafim!
+          <br />
+          <br />
+          <img
+            src={MichelleEMatheus}
+            alt="Michelle Developer e Professor de Inglês Matheus Serafim"
+            className="h-40 w-full md:w-3/4 lg:w-1/2 mx-auto object-cover rounded-lg"
+          />
         </p>
       </div>
     </div>
